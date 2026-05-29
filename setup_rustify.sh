@@ -67,7 +67,7 @@ done
 
 echo ""
 echo "  Done."
-echo "  Directories : $(find "$BASE" -type d | wc -l)"
-echo "  Files       : $(find "$BASE" -type f | wc -l)"
+printf "  Directories : %s\n" "$(find "$BASE" -type d | wc -l)"
+printf "  Files       : %s\n" "$(find "$BASE" -type f | wc -l)"
 echo ""
-echo "  Next step: git add . && git commit -m 'scaffold: full rustify directory structure'"
+echo "  Next: git add . && git commit -m 'scaffold: full rustify structure'"
