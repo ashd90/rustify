@@ -8,26 +8,179 @@ A structured, project-based curriculum for mastering the Rust programming langua
 
 This repository is a personal learning journal and code workspace for a deep, hands-on Rust curriculum. Each phase covers specific concepts with theory, real-world analogies, 5–6 examples per topic, and a capstone project. No concept is skipped. No phase begins without mastering the previous one.
 
-**Learner:** Ashish
-**OS:** CachyOS Linux (Arch-based)
-**Shell:** bash / zsh
-**Editor:** VSCode / Neovim (rust-analyzer)
-**Rust Toolchain:** managed via rustup
+| Field | Detail |
+|-------|--------|
+| **Learner** | Ashish |
+| **OS** | CachyOS Linux (Arch-based) |
+| **Shell** | bash / zsh |
+| **Editor** | VSCode / Neovim (rust-analyzer) |
+| **Toolchain** | managed via rustup |
 
 ---
 
 ## Folder Convention
 
 Every topic inside every phase follows the **same structure**:
+
+```text
+<topic-folder>/
+├── README.md          ← theory, real-world analogy, commands used, FAQ
+├── examples/
+│   ├── e01_<name>.rs
+│   ├── e02_<name>.rs
+│   ├── e03_<name>.rs
+│   ├── e04_<name>.rs
+│   ├── e05_<name>.rs
+│   └── e06_<name>.rs
+└── project/
+    └── main.rs
+```
+
 Each topic `README.md` contains:
+
 - **Theory** — what the concept is and why it exists
 - **Real-world analogy** — a plain-language mental model
-- **Commands used** — every cargo/rustc command for the topic
+- **Commands used** — every `cargo` / `rustc` command for the topic
 - **FAQ** — common mistakes and confusions
 
 ---
 
 ## Directory Structure
+
+```text
+rustify/
+├── README.md
+├── setup_rustify.sh
+│
+├── phase-00-setup/
+│   ├── 01-what-is-rust/
+│   ├── 02-rustup-toolchains/
+│   ├── 03-cargo-basics/
+│   ├── 04-ide-setup/
+│   ├── 05-rust-playground/
+│   └── 06-rustfmt-clippy/
+│
+├── phase-01-basics/
+│   ├── 01-variables-mutability/
+│   ├── 02-data-types/
+│   ├── 03-compound-types/
+│   ├── 04-control-flow/
+│   ├── 05-functions/
+│   └── 06-pattern-matching/
+│
+├── phase-02-data-structures/
+│   ├── 01-primitives/
+│   ├── 02-string-str/
+│   ├── 03-vec/
+│   ├── 04-hashmap-hashset/
+│   ├── 05-linked-list-queue-stack/
+│   └── 06-btree-binaryheap/
+│
+├── phase-03-ownership/
+│   ├── 01-ownership-rules/
+│   ├── 02-move-clone-copy/
+│   ├── 03-references-borrowing/
+│   ├── 04-mutable-references/
+│   ├── 05-slices/
+│   └── 06-stack-vs-heap/
+│
+├── phase-04-structs-enums/
+│   ├── 01-structs/
+│   ├── 02-impl-blocks/
+│   ├── 03-enums/
+│   ├── 04-option/
+│   ├── 05-match/
+│   └── 06-destructuring/
+│
+├── phase-05-error-handling/
+│   ├── 01-option-result/
+│   ├── 02-question-mark-operator/
+│   ├── 03-unwrap-expect/
+│   ├── 04-custom-errors/
+│   ├── 05-error-trait/
+│   └── 06-thiserror-anyhow/
+│
+├── phase-06-traits-generics/
+│   ├── 01-trait-definitions/
+│   ├── 02-default-impl/
+│   ├── 03-trait-objects/
+│   ├── 04-trait-bounds/
+│   ├── 05-associated-types/
+│   └── 06-generics/
+│
+├── phase-07-lifetimes/
+│   ├── 01-why-lifetimes/
+│   ├── 02-lifetime-annotations/
+│   ├── 03-lifetimes-in-structs/
+│   ├── 04-elision-rules/
+│   ├── 05-static-lifetime/
+│   └── 06-covariant-contravariant/
+│
+├── phase-08-closures-iterators/
+│   ├── 01-closure-basics/
+│   ├── 02-capturing-environment/
+│   ├── 03-fn-fnmut-fnonce/
+│   ├── 04-iterator-trait/
+│   ├── 05-iterator-adaptors/
+│   └── 06-custom-iterators/
+│
+├── phase-09-smart-pointers/
+│   ├── 01-box/
+│   ├── 02-rc/
+│   ├── 03-arc/
+│   ├── 04-weak/
+│   ├── 05-refcell-cell/
+│   └── 06-deref-drop/
+│
+├── phase-10-concurrency/
+│   ├── 01-threads/
+│   ├── 02-move-closures/
+│   ├── 03-channels/
+│   ├── 04-mutex-rwlock/
+│   ├── 05-atomic-operations/
+│   └── 06-rayon/
+│
+├── phase-11-async/
+│   ├── 01-futures/
+│   ├── 02-async-await/
+│   ├── 03-pin-unpin/
+│   ├── 04-tokio-basics/
+│   ├── 05-tokio-sync/
+│   └── 06-streams/
+│
+├── phase-12-modules-cargo/
+│   ├── 01-modules/
+│   ├── 02-pub-use/
+│   ├── 03-cargo-toml/
+│   ├── 04-workspaces/
+│   ├── 05-testing/
+│   └── 06-publishing/
+│
+├── phase-13-macros/
+│   ├── 01-macro-rules/
+│   ├── 02-repetition-patterns/
+│   ├── 03-built-in-macros/
+│   ├── 04-custom-derive/
+│   ├── 05-attribute-macros/
+│   └── 06-dsls/
+│
+├── phase-14-unsafe-ffi/
+│   ├── 01-unsafe-blocks/
+│   ├── 02-raw-pointers/
+│   ├── 03-unsafe-traits/
+│   ├── 04-extern-c/
+│   ├── 05-calling-c-from-rust/
+│   └── 06-bindgen/
+│
+└── phase-15-ecosystem/
+    ├── 01-axum/
+    ├── 02-sqlx-diesel/
+    ├── 03-serde/
+    ├── 04-clap-cli/
+    ├── 05-wasm/
+    └── 06-embedded/
+```
+
 ---
 
 ## Initial Setup (CachyOS / Arch Linux)
