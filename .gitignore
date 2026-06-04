@@ -1,0 +1,15 @@
+# Rust build artifacts
+target/
+**/*.rs.bk
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files (LazyVim/Neovim swaps)
+*.swp
+*.swo
+*~
+
+# Ignore our specific scratchpad from Phase 00
+phase-00-setup/03-cargo-basics/scratchpad/
